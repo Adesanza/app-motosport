@@ -11,7 +11,7 @@ function App() {
           <div className="logo-container">
             <img src={logo} alt="company logo" />
           </div>
-          <h1>reserve your seat</h1>
+          <h1 className="topic">Reserve your seat</h1>
           <ReserveForm />
         </main>
       </center>

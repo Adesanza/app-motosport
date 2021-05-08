@@ -4,7 +4,7 @@ import { reserveFormSchema } from '../utils/yup-schema';
 const ReserveForm = () => {
   return (
     <Formik
-    validationSchema={reserveFormSchema}
+      validationSchema={reserveFormSchema}
       initialValues={{ name: '', email: '', phone: '' }}
     >
       {({
@@ -18,8 +18,10 @@ const ReserveForm = () => {
         isSubmitting,
       }) => (
         <>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name</label>
+          <form onSubmit={handleSubmit} className="everly">
+            <label htmlFor="name" className="color-text">
+              Name
+            </label>
             <input
               id="name"
               name="name"
@@ -28,8 +30,12 @@ const ReserveForm = () => {
               onChange={handleChange}
               value={values.name}
             />
-            <span>{touched.name && errors.name ? errors.name : null}</span>
-            <label htmlFor="email">Email Address</label>
+            <span className="error-text">
+              {touched.name && errors.name ? errors.name : null}
+            </span>
+            <label htmlFor="email" className="color-text">
+              Email Address
+            </label>
             <input
               id="email"
               name="email"
@@ -38,8 +44,12 @@ const ReserveForm = () => {
               onChange={handleChange}
               value={values.email}
             />
-            <span>{touched.email && errors.email ? errors.email : null}</span>
-            <label htmlFor="phone">Phone</label>
+            <span className="error-text">
+              {touched.email && errors.email ? errors.email : null}
+            </span>
+            <label htmlFor="phone" className="color-text">
+              Phone Number
+            </label>
             <input
               id="phone"
               name="phone"
@@ -48,7 +58,9 @@ const ReserveForm = () => {
               onChange={handleChange}
               value={values.phone}
             />
-            <span>{touched.phone && errors.phone ? errors.phone : null}</span>
+            <span className="error-text">
+              {touched.phone && errors.phone ? errors.phone : null}
+            </span>
             <input type="submit" value="Submit" />
           </form>
         </>

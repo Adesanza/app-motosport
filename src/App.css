@@ -1,14 +1,11 @@
-* {
-  color: aliceblue;
-}
 .app-container {
   background-color: black;
-  height: 100%;
+  height: 800px;
 }
 
 .logo-container {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   margin: 0 auto;
 }
 .logo-container > img {
@@ -26,8 +23,9 @@
 
 /* fsjhsfghsjfgksmfgskfghosfoghskdg */
 
-input[type='text'],
+input[type='name'],
 input[type='email'],
+input[type='phone'],
 select {
   width: 100%;
   padding: 12px 20px;
@@ -39,7 +37,7 @@ select {
 }
 
 input[type='submit'] {
-  width: 100%;
+  /* width: 50%; */
   background-color: #4caf50;
   color: white;
   padding: 14px 20px;
@@ -47,6 +45,8 @@ input[type='submit'] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  text-align: center;
+  align-self: center;
 }
 
 input[type='submit']:hover {
@@ -56,9 +56,18 @@ input[type='submit']:hover {
 .everly {
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
   /* background-color: #f2f2f2; */
   padding: 20px;
   width: 50%;
-  overflow-x: hidden;
+}
+.topic {
+  color: #fff;
+  margin: 0;
+}
+.color-text {
+  color: #fff;
+  text-align: left;
+}
+.error-text {
+  color: red;
 }
