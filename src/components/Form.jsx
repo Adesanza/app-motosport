@@ -1,12 +1,23 @@
 import { Button } from 'react-bootstrap';
-import { Form, Formik } from 'formik';
-// import { Fragment } from 'react';
+import { Formik } from 'formik';
 import { reserveFormSchema } from '../utils/yup-schema';
-const ReserveForm = () => {
+import { reserveUser } from '../utils/user-api';
+const ReserveForm = ({ setAlertModalShow }) => {
   return (
     <Formik
       validationSchema={reserveFormSchema}
-      initialValues={{ name: '', email: '', phone: '' }}
+      initialValues={{ username: '', email: '', phone: '' }}
+      onSubmit={async (values, { setSubmitting, setFieldError, resetForm }) => {
+        setSubmitting(true);
+        try {
+          await reserveUser(values);
+          setAlertModalShow(true);
+          resetForm();
+        } catch (err) {
+          setFieldError('email', err.message);
+        }
+        setSubmitting(false);
+      }}
     >
       {({
         handleSubmit,
@@ -19,20 +30,20 @@ const ReserveForm = () => {
         isSubmitting,
       }) => (
         <>
-          <Form onSubmit={handleSubmit} className="everly">
-            <label htmlFor="name" className="color-text">
+          <form onSubmit={handleSubmit} className="everly">
+            <label htmlFor="username" className="color-text">
               Name
             </label>
             <input
-              id="name"
-              name="name"
-              type="name"
+              id="username"
+              name="username"
+              type="text"
               onBlur={handleBlur}
               onChange={handleChange}
-              value={values.name}
+              value={values.username}
             />
             <span className="error-text">
-              {touched.name && errors.name ? errors.name : null}
+              {touched.username && errors.username ? errors.username : null}
             </span>
             <label htmlFor="email" className="color-text">
               Email Address
@@ -66,7 +77,7 @@ const ReserveForm = () => {
               submit
             </Button>
             {/* <input type="submit" value="Submit" /> */}
-          </Form>
+          </form>
         </>
       )}
     </Formik>
