@@ -1,11 +1,12 @@
-import { Form, Formik } from 'formik';
+import { Formik } from 'formik';
 // import { Fragment } from 'react';
 import { reserveFormSchema } from '../utils/yup-schema';
 const ReserveForm = () => {
   return (
-    <Formik>
-      validationSchema={reserveFormSchema}
+    <Formik
+    validationSchema={reserveFormSchema}
       initialValues={{ name: '', email: '', phone: '' }}
+    >
       {({
         handleSubmit,
         handleChange,
