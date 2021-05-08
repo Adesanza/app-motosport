@@ -1,4 +1,5 @@
-import { Formik } from 'formik';
+import { Button } from 'react-bootstrap';
+import { Form, Formik } from 'formik';
 // import { Fragment } from 'react';
 import { reserveFormSchema } from '../utils/yup-schema';
 const ReserveForm = () => {
@@ -18,7 +19,7 @@ const ReserveForm = () => {
         isSubmitting,
       }) => (
         <>
-          <form onSubmit={handleSubmit} className="everly">
+          <Form onSubmit={handleSubmit} className="everly">
             <label htmlFor="name" className="color-text">
               Name
             </label>
@@ -61,8 +62,11 @@ const ReserveForm = () => {
             <span className="error-text">
               {touched.phone && errors.phone ? errors.phone : null}
             </span>
-            <input type="submit" value="Submit" />
-          </form>
+            <Button type="submit" disabled={isSubmitting}>
+              submit
+            </Button>
+            {/* <input type="submit" value="Submit" /> */}
+          </Form>
         </>
       )}
     </Formik>
