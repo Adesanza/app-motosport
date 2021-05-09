@@ -14,7 +14,8 @@ const AlertModal = ({ alertModalShow, setAlertModalShow }) => {
           alt=""
         />
         <Modal.Body className="alerter">
-          Thanks for reserving. See you on Sunday!
+          Your spot has been Reserved <br />
+          See you on Sunday!
         </Modal.Body>
       </center>
     </Modal>
